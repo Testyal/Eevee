@@ -8,32 +8,24 @@ public class DoorSwitch : Switch
 {
     public Door door;
 
-    protected override string toolTip
+    protected override string tooltip
     {
-        get 
+        get => "Press E to open door";
+    }
+
+    public override void Start()
+    {
+        base.Start();
+
+        if (door.isOpen)
         {
-            return door.isOpen ? "" : "Press E to open door";
+            Deactivate();
         }
     }
 
-    public override void OnHover()
+    protected override void Interact()
     {
-        canvas.instruction = toolTip;
-        
-        if (!door.isOpen)
-        {
-            material.color = Color.red;
-        }
-    }
-
-    public override void Interact()
-    {
-        if (!door.isOpen)
-        {
-            material.SetColor("_Color", Color.white);
-            door.Open();
-            door.isOpen = true;
-            enabled = false;
-        }
+        door.Open();
+        Deactivate();
     }
 }

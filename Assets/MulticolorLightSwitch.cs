@@ -5,67 +5,26 @@ using UnityEngine;
 
 public class MulticolorLightSwitch : Switch
 {
-    public Light multicolorLight;
+    /* TODO: Create a cyclical list class so the kinda obtuse (i+1) % colors.Length goes away */
+    public Color[] colors = {Color.red, Color.green, Color.blue};
+    public Light controlledLight;
+    private int i = 0;
 
-    enum State
+    protected override string tooltip
     {
-        red,
-        green,
-        blue
-    } 
-    private State state = State.red;
-
+        get => "Press E to change color to " + colors[(i + 1) % colors.Length].ToString();
+    }
     public override void Start()
     {
         base.Start();
 
-        multicolorLight.color = Color.red;
+        controlledLight.color = Color.red;
     }
 
-    public override void Interact()
+    /* Interacting with the switch cycles light through colors.Length different colors */
+    protected override void Interact()
     {
-        switch (state)
-        {
-            case State.red:
-            multicolorLight.color = Color.blue;
-            state = State.blue;
-            break;
-
-            case State.blue:
-            multicolorLight.color = Color.green;
-            state = State.green;
-            break;
-
-            case State.green:
-            multicolorLight.color = Color.red;
-            state = State.red;
-            break;
-
-            default:
-            break;
-
-        }
-    }
-
-    protected override string toolTip
-    {
-        get
-        {
-            switch (state)
-            {
-                case State.red:
-                return "Press E to change light color to blue";
-
-                case State.blue:
-                return "Press E to change light color to green";
-
-                case State.green:
-                return "Press E to change light color to red";
-
-                default:
-                Debug.Log("State took a value it wasn't meant to");
-                return "";
-            }
-        }
+        i = (i + 1) % colors.Length;
+        controlledLight.color = colors[i];
     }
 }

@@ -17,7 +17,7 @@ public class ObjectSweeper : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            interactObject?.Interact();
+            interactObject?.OnInteract();
         }
 
         hoverObject?.OnHover();

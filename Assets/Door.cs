@@ -12,6 +12,7 @@ public class Door : MonoBehaviour
         if (!isOpen)
         {
             director?.Play();
+            isOpen = true;
         }
     }
 
