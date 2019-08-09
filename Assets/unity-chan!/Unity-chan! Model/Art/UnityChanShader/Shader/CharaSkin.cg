@@ -10,6 +10,7 @@
 // Material parameters
 float4 _Color;
 float4 _ShadowColor;
+float4 _SpecularColor;
 float4 _LightColor0;
 float4 _MainTex_ST;
 
@@ -93,13 +94,32 @@ float4 frag( v2f i ) : COLOR
 	falloffU = tex2D( _RimLightSampler, float2( falloffU, 0.25f ) ).r;
 	float3_t lightColor = diffSamplerColor.rgb * 0.5; // * 2.0;
 	combinedColor += falloffU * lightColor;
-
+/*
 #ifdef ENABLE_CAST_SHADOWS
 	// Cast shadows
 	float3_t shadowColor = _ShadowColor.rgb * combinedColor;
 	float_t attenuation = saturate( 2.0 * LIGHT_ATTENUATION( i ) - 1.0 );
 	combinedColor = lerp( shadowColor, combinedColor, attenuation );
 #endif
+*/
+	/* Shadows */ 
+	float3_t shadowColor = _ShadowColor.rgb * combinedColor;
+	float_t lightDotNormal = dot(i.normal, i.lightDir);
+	float_t attenuation = 1.0f;
+	if (lightDotNormal < 0)
+	{
+		attenuation = 0.5f;
+	}
+	combinedColor = lerp(shadowColor, combinedColor, attenuation);
 
+	float3_t specularColor = _SpecularColor.rgb + combinedColor;
+	float_t specularAttenuation = 1.0f;
+	if (lightDotNormal > 0.98)
+	{
+		specularAttenuation = 0.1f;
+	}
+	combinedColor = lerp(specularColor, combinedColor, specularAttenuation);
+
+//	return float4(i.lightDir, 1.0);
 	return float4_t( combinedColor, diffSamplerColor.a ) * _Color * _LightColor0;
 }

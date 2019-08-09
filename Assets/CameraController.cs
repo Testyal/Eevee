@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour
     void FixedUpdate()
     {
         /* IDEA: Code sockets in suitable objects to plug the camera into */
-        transform.position = owner.transform.position + Vector3.up;
+        transform.position = owner.transform.position + 1.1f* Vector3.up;
 
         /* Camera */
         pitch += (isVerticalCameraReversed ? 1 : -1) * Input.GetAxis("Mouse Y") * cameraSpeed;

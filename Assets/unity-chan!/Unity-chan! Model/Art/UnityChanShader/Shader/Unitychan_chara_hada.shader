@@ -4,6 +4,7 @@ Shader "UnityChan/Skin"
 	{
 		_Color ("Main Color", Color) = (1, 1, 1, 1)
 		_ShadowColor ("Shadow Color", Color) = (0.8, 0.8, 1, 1)
+		_SpecularColor ("Specular Color", Color) = (1, 1, 1, 1)
 		_EdgeThickness ("Outline Thickness", Float) = 1
 				
 		_MainTex ("Diffuse", 2D) = "white" {}
@@ -18,6 +19,7 @@ Shader "UnityChan/Skin"
 			"RenderType"="Opaque"
 			"Queue"="Geometry"
 			"LightMode"="ForwardBase"
+			"PassFlags" = "OnlyDirectional"
 		}
 
 		Pass
