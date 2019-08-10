@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/*
 public class LightSwitch : Switch
 {
     public Light controlledLight;
@@ -15,3 +15,4 @@ public class LightSwitch : Switch
         controlledLight.enabled = !controlledLight.enabled;
     }
 }
+*/

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Playables;
-
+/*
 public class DoorSwitch : Switch
 {
     public Door door;
@@ -29,3 +29,4 @@ public class DoorSwitch : Switch
         Deactivate();
     }
 }
+*/

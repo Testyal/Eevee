@@ -11,8 +11,8 @@ public class ObjectSweeper : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        /* TODO: Must fix hovering - some frames the player interacts with an object which isn't interactable (or even hoverable) */
         interactObject = other.gameObject.GetComponent<IInteractable>();
-        /* TODO: Make hovering not rely on the big poopy capsule trigger */
         hoverObject = other.gameObject.GetComponent<IHoverable>();
 
         if (Input.GetKeyDown(KeyCode.E))

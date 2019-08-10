@@ -207,6 +207,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOpen: 0
+  controllers:
+  - {fileID: 1041194882}
 --- !u!1001 &379139072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -705,19 +707,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 795076819}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4641505ba4f54021946ea219c56ecc8, type: 3}
+  m_Script: {fileID: 11500000, guid: e0b8dfc8b01b24225adbda47b1131f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 2098307485}
-  colors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 1, g: 0.5716193, b: 0, a: 1}
-  - {r: 1, g: 0.97662354, b: 0, a: 1}
-  - {r: 0.2970481, g: 1, b: 0, a: 1}
-  - {r: 0, g: 0, b: 1, a: 1}
-  - {r: 0.42212582, g: 0, b: 1, a: 1}
-  - {r: 0.8281565, g: 0, b: 1, a: 1}
-  controlledLight: {fileID: 1041250338}
 --- !u!65 &795076821
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -788,7 +780,7 @@ Transform:
   m_LocalScale: {x: 0.052124, y: 0.2533161, z: 0.26712}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &867778184
 GameObject:
@@ -1114,11 +1106,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1041194881}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e960910d9f7cf43e0bab6598d0d980ba, type: 3}
+  m_Script: {fileID: 11500000, guid: e0b8dfc8b01b24225adbda47b1131f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 2098307485}
-  door: {fileID: 378302255}
 --- !u!65 &1041194883
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1189,7 +1179,7 @@ Transform:
   m_LocalScale: {x: 0.052124, y: 0.2533161, z: 0.26712}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1041250337
 GameObject:
@@ -1201,6 +1191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1041250339}
   - component: {fileID: 1041250338}
+  - component: {fileID: 1041250340}
   m_Layer: 0
   m_Name: Multicolor Light
   m_TagString: Untagged
@@ -1280,8 +1271,22 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1041250340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041250337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a57ac6ce649e44852b6496ffa0f125fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllers:
+  - {fileID: 795076820}
 --- !u!1 &1041677850
 GameObject:
   m_ObjectHideFlags: 0
@@ -2185,7 +2190,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1508009826
 PrefabInstance:
@@ -3116,11 +3121,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2009353538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb6dde23c08d345088610e75a08e3822, type: 3}
+  m_Script: {fileID: 11500000, guid: e0b8dfc8b01b24225adbda47b1131f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 2098307485}
-  controlledLight: {fileID: 2127271605}
 --- !u!65 &2009353540
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3316,6 +3319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2127271606}
   - component: {fileID: 2127271605}
+  - component: {fileID: 2127271607}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -3397,3 +3401,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2127271607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127271604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff382d5f55a24248815ebd8f44d0bfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllers:
+  - {fileID: 2009353539}

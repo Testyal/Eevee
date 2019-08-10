@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,5 +16,6 @@ public class Rotation : MonoBehaviour
     {
         float deltaAngle = 10.0f * Time.deltaTime; // 10.0f degrees/s
         transform.Rotate(0.0f, deltaAngle, 0.0f);
-    }
+    } 
 }
+

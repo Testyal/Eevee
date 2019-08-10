@@ -6,23 +6,15 @@ using UnityEngine.UI;
 public class SceneUI : MonoBehaviour
 {
     public Text instructionField;
-    private string _instruction;
-    public string instruction
+
+    public void DisplayTip(string tip)
     {
-        get 
-        {
-            return _instruction;
-        }
-        set
-        {
-            _instruction = value;
-            instructionField.text = value;
-        }
+        instructionField.text = tip;
     }
 
     public void Start()
     {
-        instruction = "Hey";
+        DisplayTip("Hey");
     }
     
 }

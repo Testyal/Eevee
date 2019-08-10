@@ -1,62 +1,31 @@
 ﻿using System;
+using UnityEditor;
 using UnityEngine;
 
-public abstract class Switch : MonoBehaviour, IInteractable, IHoverable
+public class Switch : MonoBehaviour, IInteractable, IHoverable
 {
-    /// <summary>
-    /// write something nice for your friends :)
-    /// </summary>
-    /// <value> hm what should i have for dinner </value>
-    protected abstract string tooltip { get; }
+    private Material material;
+    private static readonly int ColorID = Shader.PropertyToID("_Color");
 
-    /* TODO: Come up with a method for switches to not have to have a reference to the canvas in order to communicate with it */
-    public SceneUI canvas;
-    protected Material material;
-    private bool activated = true;
-
-    public virtual void Start()
+    public void Start()
     {
-        material = gameObject.GetComponent<MeshRenderer>().material;
+        material = gameObject.GetComponent<MeshRenderer>().material; 
     }
-    
-    protected abstract void Interact();
+
+    public event Action Interact;
 
     public void OnInteract()
     {
-        if (activated)
-        {
-            Interact();
-        }
+        Interact?.Invoke();
     }
 
-    public virtual void OnFinishHover()
+    public void OnFinishHover()
     {
-        canvas.instruction = ""; 
-        material.SetColor("_Color", Color.white);
+        material.SetColor(ColorID, Color.white);
     }
 
-    public virtual void OnHover()
+    public void OnHover()
     {
-        if (activated)
-        {
-            canvas.instruction = tooltip;
-            /* TODO: Replace changing the color to red with adding a nice outline */
-            material.SetColor("_Color", Color.red);
-        }
-        else
-        {
-            canvas.instruction = "";
-            material.SetColor("_Color", Color.white);
-        }
-    }
-
-    public void Deactivate()
-    {
-        activated = false;
-    }
-
-    public void Activate()
-    {
-        activated = true;
+        material.SetColor(ColorID, Interact != null ? Color.red : Color.white);
     }
 }

@@ -2,6 +2,7 @@
 using System;
 
 public interface IInteractable
-{
-	void OnInteract();
+{ 
+    event Action Interact; 
+    void OnInteract();
 }
