@@ -21,32 +21,16 @@ public class FooBar : EditorWindow
         // Each editor window contains a root VisualElement object
         VisualElement root = rootVisualElement;
 
-        // VisualElements objects can contain other VisualElement following a tree hierarchy.
-        VisualElement label = new Label("Hello World! From C#");
-        root.Add(label);
-
-        // Import UXML
-        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Editor/FooBar.uxml");
-        VisualElement labelFromUXML = visualTree.CloneTree();
-        root.Add(labelFromUXML);
+        VisualElement niceBox = new Box();
+        niceBox.style.flexDirection = FlexDirection.Row;
+        niceBox.style.marginLeft = 10;
+        niceBox.style.marginRight = 10;
+        niceBox.style.marginTop = 10;
+        niceBox.style.paddingTop = 10;
+        root.Add(niceBox);
         
-        List<string> list = new List<string> {"one", "two", "three"};
-        ListView listView = new ListView(list, 16, () => new Label(), (e, i) => (e as Label).text = list[i]);
-        listView.style.flexGrow = 1.0f;
-        list.Add("nice");
-        Box box = root.Q<Box>();
-        box.Add(listView);
-        
-        Button button = root.Q<Button>("ClickMe");
-        button.clickable.clicked += () => { list.Add("huhhhhh?"); };
-        
-        // A stylesheet can be added to a VisualElement.
-        // The style will be applied to the VisualElement and all of its children.
-        StyleSheet styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Editor/FooBar.uss");
-        root.styleSheets.Add(styleSheet);
-        
-        VisualElement labelWithStyle = new Label("Hello World! With Style");
-        root.Add(labelWithStyle);
+        niceBox.Add(new Label("Check this out"));
+        niceBox.Add(new TextField());
     }
 }
 
