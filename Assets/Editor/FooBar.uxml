@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+
+    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
+    xsi:schemaLocation="UnityEngine.UIElements ../../UIElementsSchema/UnityEngine.UIElements.xsd
+                        UnityEditor.UIElements ../../UIElementsSchema/UnityEditor.UIElements.xsd
+                        UnityEditor.PackageManager.UI ../../UIElementsSchema/UnityEditor.PackageManager.UI.xsd">
+    <Label text="Hello World! From UXML" class="nice_text"/>
+    <Box> 
+        <Toggle name="Funny" label="Funny" value="false" />
+        <Button name="ClickMe" text="Click me" class="nice_buttons" />
+    </Box>
+    <ScrollView name="ScrollView">
+        <Label text="Label1"/>
+        <Label text="Label2"/>
+        <Button text="Button"/>
+    </ScrollView>
+    <TreeView item-height="30">
+        <Label text="Tree1">
+            <Label text="Leaf1"/>
+            <Label text="Leaf2"/>
+        </Label>
+        <Label text="Tree2"/>
+    </TreeView>  
+</UXML>

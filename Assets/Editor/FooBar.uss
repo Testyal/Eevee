@@ -1,0 +1,17 @@
+.nice_buttons:hover {
+    font-size: 20;
+    font-weight: bold;
+    text-color: rgb(68, 138, 255);
+}
+
+.nice_text:hover
+{
+    font-size: 20;
+    font-weight: bold;
+    text-color: rgb(68, 138, 255);
+}
+
+.nice_buttons
+{
+    font-size: 10;
+}
