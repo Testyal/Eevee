@@ -1,0 +1,4 @@
+# Eevee
+This project was started months ago as a way to learn C# and the Unity engine. A number of scripts written during this time are available in `Assets/Scripts`. Most code here is particularly stateful, in comparison to [this weird project](https://github.com/Testyal/GameEngineThingAgain) the author felt like dedicating their time to recently. The `void` keyword appears far more often than any other return type. This may be a consequence of the Unity engine's quirks itself. In particular, the `Update` method of `GameObject`s has no return type and no parameters, and must call into `Time` and `Input` to get anything from the outside.
+
+For a week or two in August, a weird obsession with graphics programming translated into making a baby cel shader, found at `Assets/Materials/Shaders/Cel.shader`. This was modeled using the help of a cel shader tutorial found at https://roystan.net/articles/toon-shader.html.
